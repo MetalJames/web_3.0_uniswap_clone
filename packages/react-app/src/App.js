@@ -4,18 +4,19 @@ import { useEthers } from '@usedapp/core';
 import styles from './styles';
 import { uniswapLogo } from './assets';
 // import { usePools } from './hooks';
-// import { Exchange, Loader, WalletButton } from './components';
+import { Exchange, Loader, WalletButton } from './components';
 
 const App = () => {
-  // const { account } = useEthers();
+  const { account } = useEthers();
   // const [poolsLoading, pools] = usePools();
+  const poolsLoading= false;
 
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <header className={styles.header}>
           <img src={uniswapLogo} alt='uniswap-logo' className='w-16 h-16 object-contain' />
-          {/* <WalletButton /> */}WalletButton
+          <WalletButton />
         </header>
         <div className={styles.exchangeContainer}>
           <h1 className={styles.headTitle}>Uniswap 2.0</h1>
@@ -24,7 +25,17 @@ const App = () => {
             <div className={styles.exchangeBox}>
               <div className='pink_gradient' />
               <div className={styles.exchange}>
-
+              {/* <Exchange pools={pools} /> */}
+                {account ? (
+                  poolsLoading ? (
+                    <Loader title='Loading pools, please wait!' />
+                  ) : (
+                    <Exchange />
+                    
+                  )
+                ) : (
+                  <Loader title='Please connect your wallet' />
+                )}
               </div>
               <div className='blue_gradient' />
             </div>
