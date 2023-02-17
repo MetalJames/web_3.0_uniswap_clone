@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { useConfig } from '@usedapp/core';
 
 import { ROUTER_ADDRESS } from '../config';
-import { getFactoryInfo } from '../utils/getFactoryInfo';
-import { getRouterInfo } from '../utils/getRouterInfo';
+import { getFactoryInfo, getRouterInfo } from '../utils';
 
 export const loadPools = async (providerUrl) => {
     const provider = new Web3.providers.HttpProvider(providerUrl);

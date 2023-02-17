@@ -4,12 +4,12 @@ import { useEthers } from '@usedapp/core';
 import styles from './styles';
 import { uniswapLogo } from './assets';
 import { usePools } from './hooks';
-import { Exchange, Loader, WalletButton } from './components';
+import { Exchange, Loader, WalletButton } from './components'
 
 const App = () => {
   const { account } = useEthers();
   const [poolsLoading, pools] = usePools();
-
+  
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
